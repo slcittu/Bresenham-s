@@ -36,3 +36,13 @@ def draw_circle(xc, yc, radius):
     plt.gca().set_aspect('equal', adjustable='box')
     plt.show()
 
+def read_input():
+    try:
+        xc = int(input("Enter the x-coordinate of the center: "))
+        yc = int(input("Enter the y-coordinate of the center: "))
+        radius = int(input("Enter the radius of the circle: "))
+        return xc, yc, radius
+    except ValueError:
+        print("Invalid input. Please enter integers for the coordinates and radius.")
+        return None, None, None
+
