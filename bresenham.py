@@ -27,3 +27,12 @@ def bresenham_circle(xc, yc, radius):
         draw_circle(xc, yc, x, y, points)
     
     return points
+
+def draw_circle(xc, yc, radius):
+    points = bresenham_circle(xc, yc, radius)
+    
+    x_coords, y_coords = zip(*points)
+    plt.scatter(x_coords, y_coords)
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.show()
+
