@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def draw_circle(xc, yc, x, y, points):
+def plot_circl(xc, yc, x, y, points):
     points.append((xc + x, yc + y))
     points.append((xc - x, yc + y))
     points.append((xc + x, yc - y))
@@ -15,7 +15,7 @@ def bresenham_circle(xc, yc, radius):
     y = radius
     p = 3 - 2 * radius
     points = []
-    draw_circle(xc, yc, x, y, points)
+    plot_circl(xc, yc, x, y, points)
     
     while y >= x:
         x += 1
@@ -24,7 +24,7 @@ def bresenham_circle(xc, yc, radius):
             p = p + 4 * (x - y) + 10
         else:
             p = p + 4 * x + 6
-        draw_circle(xc, yc, x, y, points)
+        plot_circl(xc, yc, x, y, points)
     
     return points
 
@@ -45,4 +45,13 @@ def read_input():
     except ValueError:
         print("Invalid input. Please enter integers for the coordinates and radius.")
         return None, None, None
+    
+def main():
+    xc, yc, radius = read_input()
+    if xc is not None and yc is not None and radius is not None:
+        draw_circle(xc, yc, radius)
+
+if __name__ == "__main__":
+    main()
+
 
